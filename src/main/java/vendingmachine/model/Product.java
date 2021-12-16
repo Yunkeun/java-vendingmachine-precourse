@@ -4,13 +4,13 @@ public class Product {
 
 	private final String name;
 	private final int price;
-	private int number;
+	private int count;
 	private static final int SOLD_OUT_COUNT = 0;
 
-	public Product(String name, int price, int number) {
+	public Product(String name, int price, int count) {
 		this.name = name;
 		this.price = price;
-		this.number = number;
+		this.count = count;
 	}
 
 	public String getName() {
@@ -21,15 +21,15 @@ public class Product {
 		return price;
 	}
 
-	public int getNumber() {
-		return number;
+	public int getCount() {
+		return count;
 	}
 
 	public boolean isSoldOut() {
-		return number == SOLD_OUT_COUNT;
+		return count == SOLD_OUT_COUNT;
 	}
 
 	public void takeOutProduct() {
-		number--;
+		count--;
 	}
 }

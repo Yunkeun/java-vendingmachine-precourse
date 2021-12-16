@@ -11,7 +11,7 @@ public class ProductException {
 	private static final int INITIAL_VALUE = 0;
 	private static final int MINIMUM_PRICE = 100;
 	private static final int PRICE_INDEX = 1;
-	private static final int NUMBER_INDEX = 2;
+	private static final int COUNT_INDEX = 2;
 	private static final String ERROR_HEADER = "[ERROR] ";
 	private static final String SPACE_ERROR_MESSAGE = "공백이 입력되었습니다.";
 	private static final String NATURAL_NUMBER_ERROR_MESSAGE = "자연수만 입력 가능합니다.";
@@ -48,7 +48,7 @@ public class ProductException {
 
 	public static void validateFilteredInfo(List<String> filteredInfo) {
 		validatePrice(filteredInfo.get(PRICE_INDEX));
-		validateNumber(filteredInfo.get(NUMBER_INDEX));
+		validateCount(filteredInfo.get(COUNT_INDEX));
 	}
 
 	public static void validateDuplicatedName(List<Product> products) {
@@ -75,12 +75,12 @@ public class ProductException {
 		}
 	}
 
-	private static void validateNumber(String inputNumber) {
-		if (!MoneyException.isNumber(inputNumber)) {
+	private static void validateCount(String inputCount) {
+		if (!MoneyException.isNumber(inputCount)) {
 			throw new IllegalArgumentException(ERROR_HEADER + NATURAL_NUMBER_ERROR_MESSAGE);
 		}
-		int number = Integer.parseInt(inputNumber);
-		if (MoneyException.isNegativeNumber(number)) {
+		int count = Integer.parseInt(inputCount);
+		if (MoneyException.isNegativeNumber(count)) {
 			throw new IllegalArgumentException(ERROR_HEADER + NATURAL_NUMBER_ERROR_MESSAGE);
 		}
 	}

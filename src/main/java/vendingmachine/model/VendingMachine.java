@@ -47,7 +47,7 @@ public class VendingMachine {
 
 	private boolean isSoldOutAllProducts() {
 		return products.stream()
-			.mapToInt(Product::getNumber)
+			.mapToInt(Product::getCount)
 			.max()
 			.getAsInt() == INITIAL_VALUE;
 	}
@@ -61,7 +61,7 @@ public class VendingMachine {
 
 	private boolean hasProductsUserCanBuy() {
 		return products.stream()
-			.filter(product -> product.getNumber() > INITIAL_VALUE)
+			.filter(product -> product.getCount() > INITIAL_VALUE)
 			.anyMatch(product -> product.getPrice() <= remainInsertMoney);
 	}
 

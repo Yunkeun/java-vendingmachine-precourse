@@ -12,7 +12,7 @@ public class ProductFactory {
 
 	private static final int NAME_INDEX = 0;
 	private static final int PRICE_INDEX = 1;
-	private static final int NUMBER_INDEX = 2;
+	private static final int COUNT_INDEX = 2;
 	private static final String PRODUCTS_DELIMITER = ";";
 	private static final String PRODUCT_INFO_DELIMITER = ",";
 	private static final String PRODUCT_BRACKET_LEFT = "[";
@@ -37,7 +37,7 @@ public class ProductFactory {
 		List<String> filteredInfo = filterInfo(productInfo);
 		ProductException.validateFilteredInfo(filteredInfo);
 		return new Product(findName(filteredInfo), findPrice(filteredInfo),
-			findNumber(filteredInfo));
+			findCount(filteredInfo));
 	}
 
 	private static String findName(List<String> filteredInfo) {
@@ -48,8 +48,8 @@ public class ProductFactory {
 		return Integer.parseInt(filteredInfo.get(PRICE_INDEX));
 	}
 
-	private static int findNumber(List<String> filteredInfo) {
-		return Integer.parseInt(filteredInfo.get(NUMBER_INDEX));
+	private static int findCount(List<String> filteredInfo) {
+		return Integer.parseInt(filteredInfo.get(COUNT_INDEX));
 	}
 
 	private static List<String> filterInfo(String productInfo) {
