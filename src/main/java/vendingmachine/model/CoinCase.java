@@ -1,6 +1,5 @@
 package vendingmachine.model;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class CoinCase {
@@ -9,8 +8,8 @@ public class CoinCase {
 	private static final int INITIAL_VALUE = 0;
 	private static final int COUNTING_COIN = 1;
 
-	public CoinCase() {
-		this.coinCase = initCoinCase();
+	public CoinCase(Map<Coin, Integer> coinCase) {
+		this.coinCase = coinCase;
 	}
 
 	public Map<Coin, Integer> getCoinCase() {
@@ -37,14 +36,5 @@ public class CoinCase {
 
 	private void useAllCoins(Coin coin) {
 		coinCase.put(coin, INITIAL_VALUE);
-	}
-
-	private Map<Coin, Integer> initCoinCase() {
-		Map<Coin, Integer> coinCase = new HashMap<>();
-		coinCase.put(Coin.COIN_500, INITIAL_VALUE);
-		coinCase.put(Coin.COIN_100, INITIAL_VALUE);
-		coinCase.put(Coin.COIN_50, INITIAL_VALUE);
-		coinCase.put(Coin.COIN_10, INITIAL_VALUE);
-		return coinCase;
 	}
 }
