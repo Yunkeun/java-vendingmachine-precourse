@@ -10,6 +10,8 @@ public class ProductException {
 
 	private static final int INITIAL_VALUE = 0;
 	private static final int MINIMUM_PRICE = 100;
+	private static final int PRICE_INDEX = 1;
+	private static final int NUMBER_INDEX = 2;
 	private static final String ERROR_HEADER = "[ERROR] ";
 	private static final String SPACE_ERROR_MESSAGE = "공백이 입력되었습니다.";
 	private static final String NATURAL_NUMBER_ERROR_MESSAGE = "자연수만 입력 가능합니다.";
@@ -44,9 +46,9 @@ public class ProductException {
 		}
 	}
 
-	public static void validateFilteredInfo(String[] filteredInfo) {
-		validatePrice(filteredInfo[1]);
-		validateNumber(filteredInfo[2]);
+	public static void validateFilteredInfo(List<String> filteredInfo) {
+		validatePrice(filteredInfo.get(PRICE_INDEX));
+		validateNumber(filteredInfo.get(NUMBER_INDEX));
 	}
 
 	public static void validateDuplicatedName(List<Product> products) {
